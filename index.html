@@ -96,7 +96,7 @@
             <li>Decision-making principles</li>
           </ul>
           <p class="program-card__best-for"><strong>Best for:</strong> Business owners who want to stop working randomly and start building with clarity, structure, and discipline.</p>
-          <a href="https://wa.me/9651160056?text=Hi%20Zenogi%2C%20I%20am%20interested%20in%20ZBS%20%E2%80%94%20Zenogi%20Business%20Systems" class="btn btn--filled" target="_blank" rel="noopener noreferrer">Apply for ZBS</a>
+          <a href="#" class="btn btn--filled js-program-enroll" data-whatsapp="https://wa.me/9651160056?text=Hi%20Zenogi%2C%20I%20am%20interested%20in%20ZBS%20%E2%80%94%20Zenogi%20Business%20Systems" data-program="ZBS">Apply for ZBS</a>
         </article>
 
         <article class="program-card program-card--featured fade-in" id="program-zfc">
@@ -114,7 +114,7 @@
             <li>Execution review and correction</li>
           </ul>
           <p class="program-card__best-for"><strong>Best for:</strong> Serious businessmen who want to scale their company, improve their thinking, and become stronger founders.</p>
-          <a href="https://wa.me/9651160056?text=Hi%20Zenogi%2C%20I%20am%20interested%20in%20ZFC%20%E2%80%94%20Zenogi%20Founder%20Circle" class="btn btn--filled" target="_blank" rel="noopener noreferrer">Apply for ZFC</a>
+          <a href="#" class="btn btn--filled js-program-enroll" data-whatsapp="https://wa.me/9651160056?text=Hi%20Zenogi%2C%20I%20am%20interested%20in%20ZFC%20%E2%80%94%20Zenogi%20Founder%20Circle" data-program="ZFC">Apply for ZFC</a>
         </article>
       </div>
 
@@ -124,7 +124,7 @@
         <h3 class="program-zap__title">ZAP — Zenogi Apex Proximity</h3>
         <p class="program-zap__desc">Personal mentorship for one year. Reserved for rare founders who are ready for deep transformation — at business, leadership, and personal level. Includes full access to ZBS and ZFC.</p>
         <p class="program-zap__note">This is not applied for. It is offered.</p>
-        <a href="https://wa.me/9651160056?text=Hi%20Zenogi%2C%20I%20would%20like%20to%20request%20an%20invitation%20for%20ZAP%20%E2%80%94%20Zenogi%20Apex%20Proximity" class="btn btn--ghost" target="_blank" rel="noopener noreferrer">Request Invitation</a>
+        <a href="#" class="btn btn--ghost js-program-enroll" data-whatsapp="https://wa.me/9651160056?text=Hi%20Zenogi%2C%20I%20would%20like%20to%20request%20an%20invitation%20for%20ZAP%20%E2%80%94%20Zenogi%20Apex%20Proximity" data-program="ZAP">Request Invitation</a>
       </div>
     </div>
   </section>
@@ -203,7 +203,7 @@
             <span class="faq__icon" aria-hidden="true">+</span>
           </button>
           <div class="faq__answer">
-            <p>Yes. Please refer to our full <a href="refund-policy.html">Refund and Cancellation Policy</a> page linked in the footer. We are committed to making your investment risk-free within the applicable time frames.</p>
+            <p>All enrollment fees are final and non-refundable. Please read our full <a href="refund-policy.html">Refund and Commitment Policy</a> and <a href="terms-and-conditions.html">Terms &amp; Conditions</a> before enrolling.</p>
           </div>
         </div>
 
@@ -259,11 +259,37 @@
       <nav class="footer__nav">
         <a href="#programs">Programs</a>
         <a href="https://wa.me/9651160056?text=Hi%20Zenogi%2C%20I%20have%20a%20question" target="_blank" rel="noopener noreferrer">Apply</a>
-        <a href="refund-policy.html">Refund &amp; Cancellation Policy</a>
+        <a href="refund-policy.html">Refund &amp; Commitment Policy</a>
+        <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
       </nav>
       <p class="footer__copy">© 2025 Zenogi. All rights reserved.</p>
     </div>
   </footer>
+
+  <!-- Terms dialog (Programs section enroll only) -->
+  <div class="terms-modal" id="termsModal" aria-hidden="true" role="dialog" aria-labelledby="termsModalTitle" aria-modal="true">
+    <div class="terms-modal__backdrop" data-terms-close></div>
+    <div class="terms-modal__panel">
+      <h2 id="termsModalTitle" class="terms-modal__title">Terms &amp; Conditions</h2>
+      <p class="terms-modal__program" id="termsModalProgram"></p>
+      <div class="terms-modal__body">
+        <p class="terms-modal__lead">By enrolling, you agree to the Zenogi Business Programs <strong>Refund and Commitment Policy</strong> and these terms:</p>
+        <ul>
+          <li>All enrollment fees are <strong>final and non-refundable</strong> (ZBS, ZFC, and ZAP).</li>
+          <li>Participation requires active involvement, implementation effort, and professional commitment.</li>
+          <li>Missed sessions or non-participation do not qualify for refunds, credits, or transfers.</li>
+          <li>Zenogi may modify program structure, curriculum, or sessions without entitlement to refunds.</li>
+          <li>No specific revenue, profit, or business outcomes are guaranteed.</li>
+          <li>You agree not to initiate unjustified payment disputes or chargebacks after receiving program access.</li>
+        </ul>
+        <p>Read the full policy: <a href="terms-and-conditions.html" target="_blank" rel="noopener noreferrer">Terms &amp; Conditions</a> · <a href="refund-policy.html" target="_blank" rel="noopener noreferrer">Refund &amp; Commitment Policy</a></p>
+      </div>
+      <div class="terms-modal__actions">
+        <button type="button" class="btn btn--outline" data-terms-close>Decline</button>
+        <button type="button" class="btn btn--filled" id="termsAccept">Accept &amp; Continue</button>
+      </div>
+    </div>
+  </div>
 
   <!-- Sticky help bar — replace 9651160056 with real number before going live -->
   <aside class="help-bar" id="helpBar">

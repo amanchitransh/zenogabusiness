@@ -6,6 +6,10 @@
   const navMenu = document.getElementById('navMenu');
   const problemList = document.getElementById('problemList');
   const faqList = document.getElementById('faqList');
+  const termsModal = document.getElementById('termsModal');
+  const termsAccept = document.getElementById('termsAccept');
+  const termsModalProgram = document.getElementById('termsModalProgram');
+  let pendingWhatsAppUrl = '';
 
   /* ---- Sticky navbar blur ---- */
   function onScroll() {
@@ -31,6 +35,63 @@
         navToggle.classList.remove('active');
         navToggle.setAttribute('aria-expanded', 'false');
       });
+    });
+  }
+
+  /* ---- Programs enroll: terms dialog then WhatsApp ---- */
+  const programLabels = {
+    ZBS: 'ZBS — Zenogi Business Systems',
+    ZFC: 'ZFC — Zenogi Founder Circle',
+    ZAP: 'ZAP — Zenogi Apex Proximity',
+  };
+
+  function openTermsModal(whatsappUrl, programCode) {
+    if (!termsModal) return;
+    pendingWhatsAppUrl = whatsappUrl;
+    if (termsModalProgram) {
+      termsModalProgram.textContent = programLabels[programCode]
+        ? `Enrolling in: ${programLabels[programCode]}`
+        : '';
+    }
+    termsModal.classList.add('open');
+    termsModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    termsAccept?.focus();
+  }
+
+  function closeTermsModal() {
+    if (!termsModal) return;
+    termsModal.classList.remove('open');
+    termsModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    pendingWhatsAppUrl = '';
+  }
+
+  if (termsModal) {
+    document.querySelectorAll('#programs .js-program-enroll').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const url = btn.getAttribute('data-whatsapp');
+        const program = btn.getAttribute('data-program');
+        if (url) openTermsModal(url, program);
+      });
+    });
+
+    termsAccept?.addEventListener('click', () => {
+      if (pendingWhatsAppUrl) {
+        window.open(pendingWhatsAppUrl, '_blank', 'noopener,noreferrer');
+      }
+      closeTermsModal();
+    });
+
+    document.querySelectorAll('[data-terms-close]').forEach((el) => {
+      el.addEventListener('click', closeTermsModal);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && termsModal.classList.contains('open')) {
+        closeTermsModal();
+      }
     });
   }
 
